@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="app" class="form-page">
+        <nav class="navbar">
+            <h3><i class="fas fa-edit"></i> Edit Profile</h1>
+            <div class="nav-buttons">
+                <button onclick="window.location.href='profile.html'" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button onclick="handleLogout()" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </nav>
+
+        <form id="userForm" onsubmit="saveUserDetails(event)" class="profile-form">
+            <div class="form-section">
+                <h3><i class="fas fa-user"></i> Basic Information</h3>
+                <div class="input-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="input-group">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" id="phoneNumber" required pattern="[0-9]{10}">
+                </div>
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="birthdate">Birth Date:</label>
+                    <input type="date" id="birthdate" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3><i class="fas fa-image"></i> Profile Picture</h3>
+                <div class="profile-picture-upload">
+                    <div id="imagePreview" class="image-preview">
+                        <i class="fas fa-user default-avatar"></i>
+                    </div>
+                    <div class="upload-controls">
+                        <label for="profilePicture" class="upload-btn">
+                            <i class="fas fa-upload"></i> Choose Image
+                        </label>
+                        <input type="file" id="profilePicture" accept="image/*" onchange="previewImage(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3><i class="fas fa-info-circle"></i> Additional Information</h3>
+                <div class="input-group">
+                    <label for="bio">Introduction (Bio):</label>
+                    <textarea id="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="hobby">Hobbies:</label>
+                    <input type="text" id="hobby" placeholder="Enter your hobbies...">
+                </div>
+                <div class="input-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" placeholder="City, Country">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3><i class="fas fa-link"></i> Social Links</h3>
+                <div class="input-group">
+                    <label for="linkedin">LinkedIn:</label>
+                    <input type="url" id="linkedin" placeholder="LinkedIn profile URL">
+                </div>
+                <div class="input-group">
+                    <label for="twitter">Twitter:</label>
+                    <input type="url" id="twitter" placeholder="Twitter profile URL">
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-save"></i> Save Changes
+            </button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
